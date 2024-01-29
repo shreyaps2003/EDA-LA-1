@@ -1,0 +1,79 @@
+---
+title: "CAR EVALUATION"
+author: "Shreya PS"
+date: "2024/01/28"
+output:
+  word_document: default
+  html_document: default
+theme: darkly
+---
+#loading the dataset
+```{r}
+df<-read.csv("C:\\Users\\Shreya\\OneDrive\\Desktop\\cardata.csv")
+```
+#printing the summary of the dataframe
+```{r}
+summary(df)
+```
+#checking the structure of the dataframe
+```{r}
+str(df)
+```
+#displaying the first few rows of the dataframe
+```{r}
+head(df)
+```
+#accessing the column in a dataframe
+```{r}
+df$DOORS
+```
+#getting the names of all columns in the dataset
+```{r}
+names(df)
+```
+#checking the datatype of a column
+```{r}
+class(df$SAFETY)
+```
+#creating a dataset of data frame where Number of Persons is less than 4
+```{r echo=TRUE}
+subset_df <- df[df$PERSONS < 4, ]
+subset_df
+```
+#removing the "DOORS" column
+```{r}
+df$DOORS <- NULL
+summary(df)
+```
+#renaming the "lug_boot" column to "bootspace"
+```{r}
+names(df)[names(df) == "LUG_BOOT"] <- "BOOTSPACE"
+summary(df)
+```
+#converting data type
+```{r}
+as.numeric(df$BUYING)
+```
+#displaying frequency counts for "buying"
+```{r}
+table(df$BUYING)
+```
+#calculating average 
+```{r}
+library(dplyr)
+
+avg_safety_by_VALUES <- df %>%
+  group_by(VALUES) %>%
+  summarise(Avg_Safety = mean(as.numeric(factor(SAFETY, levels = c("low", "med", "high")))))
+avg_safety_by_VALUES
+
+
+```
+
+
+
+
+
+
+
+
