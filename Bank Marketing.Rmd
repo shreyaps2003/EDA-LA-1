@@ -77,14 +77,11 @@ ggplot(data, aes(x = age, y = balance)) +
   labs(title = "2D Density Plot", x = "X-axis", y = "Y-axis")
 
 ```
-```{r}
-chooseCRANmirror(graphics=FALSE)
-
-```
 
 
 
-`
+
+
 
 
 
