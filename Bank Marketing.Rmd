@@ -1,0 +1,90 @@
+---
+title: "Bank Marketing"
+author: "Shreya PS"
+date: "2024-02-02"
+output:
+  html_document: default
+  word_document: default
+---
+
+#loading the dataset
+```{r}
+df<- read.csv("C:\Users\Shreya\OneDrive\Desktop\bank data.csv")
+```
+#checking the structure of the dataframe
+```{r}
+str(df)
+```
+#displaying the first few rows of the dataframe
+```{r}
+head(df)
+```
+```{r}
+
+install.packages("ggplot2")
+```
+#creating a scatterplot
+```{r}
+library(ggplot2)
+
+ggplot(df, aes(x = age,y = balance))+
+  geom_point()
+```
+#creating a line graph
+```{r}
+library(ggplot2)
+
+ggplot(df, aes(x = age,y = balance))+
+  geom_line()
+```
+#creating a bar graph
+```{r}
+library(ggplot2)
+
+ggplot(df, aes(x = age,y = balance))+
+  geom_col()
+```
+#creating a histogram
+```{r}
+library(ggplot2)
+
+ggplot(df, aes(x = age))+
+  geom_histogram(binwidth = 4)
+```
+#creating a frequency polygon
+```{r}
+library(ggplot2)
+
+ggplot(df, aes(x = age))+
+  geom_freqpoly()
+```
+
+```{r}
+# Create a simple boxplot using base R
+data <- df$age
+
+# Plot the boxplot
+boxplot(data, main = "Boxplot of age", ylab = "balance")
+
+```
+#creating a density plot
+```{r}
+set.seed(123)
+data <- data.frame(age = rnorm(1000), balance = rnorm(1000))
+
+ggplot(data, aes(x = age, y = balance)) +
+  geom_density_2d() +
+  labs(title = "2D Density Plot", x = "X-axis", y = "Y-axis")
+
+```
+```{r}
+chooseCRANmirror(graphics=FALSE)
+
+```
+
+
+
+`
+
+
+
